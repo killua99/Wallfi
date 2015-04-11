@@ -1,5 +1,5 @@
 /**
- * src/Wallfi.vala
+ * src/vapi/config.vapi
  * Copyright 2015 Luigi Guevara <@killua99>
  *
  * This file is part of Wallfi.
@@ -18,23 +18,19 @@
  * with Wallfi. If not, see http://www.gnu.org/licenses/.
  */
 
-namespace Wallfi {
+[CCode (cprefix = "", lower_case_cprefix = "WALLFI_", cheader_filename = "config.h")]
 
-  public class Wallfi : GLib.Object {
+namespace Wallfi.Config {
+  public const int VERSION_MAJOR;
+  public const int VERSION_MINOR;
+  public const int VERSION_PATCH;
+  public const string VERSION;
 
-    public static int main (string[] args) {
-      // GLib.Intl.setlocale(GLib.LocaleCategory.MESSAGES, "");
-      // GLib.Intl.textdomain(Config.GETTEXT_PACKAGE);
-      // GLib.Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
+  public const string COPYRIGHT_NOTICE;
+  public const string SHORT_DESCRIPTION;
+  public const string WEBSITE;
 
-      Gtk.init (ref args);
+  public const string GETTEXT_PACKAGE;
+  public const string GETTEXT_PATH;
 
-      var Wallfi = new Gui();
-
-      Wallfi.show_all ();
-
-      Gtk.main ();
-      return 0;
-    }
-  }
 }

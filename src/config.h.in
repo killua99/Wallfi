@@ -1,5 +1,5 @@
 /**
- * src/Wallfi.vala
+ * src/config.h.in
  * Copyright 2015 Luigi Guevara <@killua99>
  *
  * This file is part of Wallfi.
@@ -18,23 +18,18 @@
  * with Wallfi. If not, see http://www.gnu.org/licenses/.
  */
 
-namespace Wallfi {
+#ifndef CONFIG_H
+#define CONFIG_H
 
-  public class Wallfi : GLib.Object {
+#define WALLFI_VERSION_MAJOR @WALLFI_VERSION_MAJOR@
+#define WALLFI_VERSION_MINOR @WALLFI_VERSION_MINOR@
+#define WALLFI_VERSION_PATCH @WALLFI_VERSION_PATCH@
+#define WALLFI_VERSION "@WALLFI_VERSION@"
 
-    public static int main (string[] args) {
-      // GLib.Intl.setlocale(GLib.LocaleCategory.MESSAGES, "");
-      // GLib.Intl.textdomain(Config.GETTEXT_PACKAGE);
-      // GLib.Intl.bind_textdomain_codeset(Config.GETTEXT_PACKAGE, "utf-8");
+#define WALLFI_COPYRIGHT_NOTICE "@WALLFI_COPYRIGHT_NOTICE@"
+#define WALLFI_SHORT_DESCRIPTION "@WALLFI_SHORT_DESCRIPTION@"
+#define WALLFI_WEBSITE "@WALLFI_WEBSITE@"
 
-      Gtk.init (ref args);
-
-      var Wallfi = new Gui();
-
-      Wallfi.show_all ();
-
-      Gtk.main ();
-      return 0;
-    }
-  }
-}
+#define WALLFI_GETTEXT_PACKAGE "@GETTEXT_PACKAGE@"
+#define WALLFI_GETTEXT_PATH "@GETTEXT_PATH@"
+#endif
