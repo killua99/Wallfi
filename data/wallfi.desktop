@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Wallfi
+GenericName=Wallfi App
+Comment=Set wallpapers based on Wi-Fi
+Categories=Settings
+Exec=wallfi
+Icon=application-default-icon
+Terminal=false
+Type=Application
+X-GNOME-Gettext-Domain=wallfi
+X-GNOME-Keywords=wallfi;wallpapers;wifi
