@@ -42,7 +42,8 @@ ensure_vala_version("0.16" MINIMUM)
 include(ValaPrecompile)
 
 vala_precompile(VALA_C ${EXEC_NAME}
-src/wallfi.vala
+src/Wallfi.vala
+src/Gui.vala
 
 # tell what libraries to use when compiling
 
