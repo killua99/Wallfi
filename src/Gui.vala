@@ -25,10 +25,10 @@ namespace Wallfi {
   public class Gui : Window {
 
     private Button set_wallpaper_button;
-    private Button cancel_button;
-    private Button save_button;
-    private Button edit_button;
-    private Button delete_button;
+    // private Button cancel_button;
+    // private Button save_button;
+    // private Button edit_button;
+    // private Button delete_button;
     private Grid grid;
 
     public static Gui () {
@@ -44,7 +44,7 @@ namespace Wallfi {
       this.destroy.connect (Gtk.main_quit);
 
       // Buttons
-      cancel_button = builder.get_object("cancel_button") as Button;
+      // cancel_button = builder.get_object("cancel_button") as Button;
 
       set_wallpaper_button = builder.get_object("set_wallpaper_button") as Button;
 
