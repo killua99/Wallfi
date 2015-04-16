@@ -31,8 +31,6 @@ namespace Wallfi {
 
       var Wallfi = new Gui();
 
-      Wallfi.show_all ();
-
       Gtk.main ();
       return 0;
     }
