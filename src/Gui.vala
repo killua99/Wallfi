@@ -22,7 +22,7 @@ using Gtk;
 
 namespace Wallfi {
 
-  public class Gui : Window {
+  public class Gui {
 
     private Button set_wallpaper_button;
     // private Button cancel_button;
@@ -33,24 +33,27 @@ namespace Wallfi {
 
     public static Gui () {
 
-      Builder builder = new Builder();
+      Builder builder = new Builder.from_resource("/wallfi/gui.glade");
 
-      this.title = "Wallfi";
+      var window = builder.get_object("wallfi_main") as Window;
 
-      set_border_width (12);
-      set_position (WindowPosition.CENTER);
-      set_default_size (640, 480);
+      window.title = "Wallfi";
 
-      this.destroy.connect (Gtk.main_quit);
+      window.set_border_width (12);
+      window.set_position (WindowPosition.CENTER);
+      window.set_default_size (640, 480);
+
+      window.destroy.connect (Gtk.main_quit);
 
       // Buttons
       // cancel_button = builder.get_object("cancel_button") as Button;
 
-      set_wallpaper_button = builder.get_object("set_wallpaper_button") as Button;
+      var set_wallpaper_button = builder.get_object("set_wallpaper") as Button;
 
       set_wallpaper_button.clicked.connect(search_file);
 
       // Grid
+/* There is no Grid in the glade file
       grid = builder.get_object("grid") as Grid;
 
       grid.orientation = Orientation.VERTICAL;
@@ -60,6 +63,8 @@ namespace Wallfi {
       grid.attach (set_wallpaper_button, 0, 0, 1, 1);
 
       add (grid);
+*/
+      window.show_all();
     }
 
     private void search_file () {

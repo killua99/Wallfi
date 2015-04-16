@@ -14,7 +14,7 @@ set (DATADIR "${CMAKE_INSTALL_PREFIX}/share")
 set (PKGDATADIR "${DATADIR}")
 
 set (EXEC_NAME "wallfi")
-set (RELEASE_NAME "Wallfi.")
+set (RELEASE_NAME "Wallfi")
 set (VERSION "0.1")
 set (VERSION_INFO "Set wallpapers based on wifi")
 
@@ -42,8 +42,8 @@ ensure_vala_version("0.16" MINIMUM)
 include(ValaPrecompile)
 
 vala_precompile(VALA_C ${EXEC_NAME}
-src/Wallfi.vala
-src/Gui.vala
+    src/Wallfi.vala
+    src/Gui.vala
 
 # tell what libraries to use when compiling
 
@@ -51,8 +51,16 @@ PACKAGES
      gtk+-3.0
 )
 
+include(GResource)
+
+GLIB_COMPILE_RESOURCES(WALLFI_UI
+SOURCE
+    src/gui.gresource.xml
+)
+
+
 # tell cmake what to call the executable we just made
-add_executable(${EXEC_NAME} ${VALA_C})
+add_executable(${EXEC_NAME} ${VALA_C} ${WALLFI_UI})
 
 # install the binaries we just made
 install (TARGETS ${EXEC_NAME} RUNTIME DESTINATION bin)
